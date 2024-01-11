@@ -20,8 +20,8 @@ class GBData {
   });
 
   int placeId;
-  String osmType;
-  int id;
+  String? osmType;
+  int? id;
   String lat;
   String lon;
   int placeRank;
@@ -59,46 +59,70 @@ class GBData {
 
 class Address {
   Address({
-    required this.road,
-    required this.village,
-    required this.county,
-    required this.stateDistrict,
-    required this.state,
-    required this.iso31662Lvl4,
-    required this.postcode,
-    required this.country,
-    required this.countryCode,
+    this.houseNumber,
+    this.road,
+    this.neighbourhood,
+    this.village,
+    this.cityDistrict,
+    this.city,
+    this.county,
+    this.stateDistrict,
+    this.state,
+    this.iso31662Lvl4,
+    this.region,
+    this.iso31662Lvl6,
+    this.postcode,
+    this.country,
+    this.countryCode,
   });
 
-  String road;
-  String village;
-  String county;
-  String stateDistrict;
-  String state;
-  String iso31662Lvl4;
-  String postcode;
-  String country;
-  String countryCode;
+  String? houseNumber;
+  String? road;
+  String? neighbourhood;
+  String? village;
+  String? cityDistrict;
+  String? city;
+  String? county;
+  String? stateDistrict;
+  String? state;
+  String? iso31662Lvl4;
+  String? region;
+  String? iso31662Lvl6;
+  String? postcode;
+  String? country;
+  String? countryCode;
 
   factory Address.fromJson(Map<String, dynamic> json) => Address(
+        houseNumber: json["house_number"],
         road: json["road"],
+        neighbourhood: json["neighbourhood"],
         village: json["village"],
+        cityDistrict: json["city_district"],
+        city: json["city"],
         county: json["county"],
         stateDistrict: json["state_district"],
         state: json["state"],
-        iso31662Lvl4: json["ISO3166-2-lvl4"],
+        iso31662Lvl4: json["iso3166-2-lvl4"],
+        region: json["region"],
+        iso31662Lvl6: json["iso3166-2-lvl6"],
         postcode: json["postcode"],
         country: json["country"],
         countryCode: json["country_code"],
       );
 
   Map<String, dynamic> toJson() => {
+        "house_number": houseNumber,
         "road": road,
+        "neighbourhood": neighbourhood,
         "village": village,
+        "city_district": cityDistrict,
+        "city": city,
         "county": county,
         "state_district": stateDistrict,
         "state": state,
         "ISO3166-2-lvl4": iso31662Lvl4,
+        "region": region,
+        "ISO3166-2-lvl6": iso31662Lvl6,
         "postcode": postcode,
         "country": country,
         "country_code": countryCode,

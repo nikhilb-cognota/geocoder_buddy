@@ -23,8 +23,8 @@ class MapData {
 
   int placeId;
   String licence;
-  String osmType;
-  int osmId;
+  String? osmType;
+  int? osmId;
   List<String> boundingbox;
   String lat;
   String lon;
