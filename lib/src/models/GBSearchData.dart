@@ -19,7 +19,7 @@ class GBSearchData {
   });
 
   int placeId;
-  int id;
+  int? id;
   List<String> boundingbox;
   String lat;
   String lon;
