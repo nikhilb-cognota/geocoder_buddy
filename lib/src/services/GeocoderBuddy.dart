@@ -3,8 +3,14 @@ import 'package:geocoder_buddy/src/models/MapData.dart';
 import 'package:geocoder_buddy/src/services/NetworkService.dart';
 
 class GeocoderBuddy {
-  static Future<List<GBSearchData>> query(String address) async {
-    var data = await NetworkService.searhAddress(address);
+  static Future<List<GBSearchData>> query(
+    String address, {
+    String? countryCode,
+  }) async {
+    var data = await NetworkService.searhAddress(
+      address,
+      countryCode: countryCode,
+    );
     return bgSearchDataFromJson(mapDataToJson(data));
   }
 
